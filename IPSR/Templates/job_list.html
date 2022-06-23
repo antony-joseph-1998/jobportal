@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Table V04</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="{% static 'view/image/png'%}" href="{% static 'view/images/icons/favicon.ico'%}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'view/vendor/bootstrap/css/bootstrap.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'view/fonts/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'view/vendor/animate/animate.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="{% static 'view/text/css" href="vendor/select2/select2.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'view/vendor/perfect-scrollbar/perfect-scrollbar.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'view/css/util.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'view/css/main.css'%}">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<div class="table100-head">
+						<table >
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Id</th>
+									<th class="cell100 column2">Title</th>
+									<th class="cell100 column3">Vacancies</th>
+									<th class="cell100 column4">End Date</th>
+									<th class="cell100 column5">Edit</th>
+									<th class="cell100 column6">Delete</th>
+
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table100-body js-pscroll">
+						<table >
+							<tbody>
+							{% for job in jobs %}
+
+								<tr class="row100 body">
+									<td class="cell100 column1">{{job.id}}</td>
+									<td class="cell100 column2">{{job.title}}</td>
+									<td class="cell100 column3">{{job.vacancies}}</td>
+									<td class="cell100 column4">{{job.end_date}}
+
+
+
+									<td class="cell100 column5"><a href="/edit_job/{{job.id}}/" >Edit</a></td>
+									<td class="cell100 column6"><a href="#" >Delete</a></td>
+
+
+
+								</tr>
+							{% endfor %}
+
+
+							</thead>
+						</table>
+
+					</div>
+
+
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<!--===============================================================================================-->	
+	<script src="{% static 'view/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'view/vendor/bootstrap/js/popper.js'%}"></script>
+	<script src="{% static 'view/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'view/vendor/select2/select2.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'view/vendor/perfect-scrollbar/perfect-scrollbar.min.js'%}"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+			
+		
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'view/js/main.js'%}"></script>
+<script>
+let myWindow;
+
+function closeWin() {
+  myWindow.close();
+}
+</script>
+
+</body>
+</html>
